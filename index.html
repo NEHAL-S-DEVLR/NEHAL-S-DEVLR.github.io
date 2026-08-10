@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>Nehal S — Founder of AIRO · Designer &amp; Developer</title>
+<meta name="description" content="Nehal S — founder of AIRO Company, co-runner of SPREAD Media, Board of Directors at Rotaract Club of Mandya. Motion, interface design and front-end code." />
+<meta name="author" content="Nehal S" />
+<meta name="theme-color" content="#060605" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Nehal S — Founder of AIRO · Designer & Developer" />
+<meta property="og:description" content="I build brands, businesses and the software that runs them." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Manrope:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+/* ══════════ TOKENS ══════════ */
+:root{
+  --void:#060605; --panel:#0e0e0c; --panel-2:#141412;
+  --line:rgba(255,255,255,.10); --line-2:rgba(255,255,255,.05);
+  --txt:#f3f1ec; --txt-2:#94918a; --txt-3:#5d5a54;
+  --acc:#ff4d1c; --acc-dim:rgba(255,77,28,.13);
+  --airo:#2f6bff; --media:#e5232a; --farms:#37a13a; --events:#e0a020; --spread:#e5203d; --rota:#e5205c;
+  --nav-h:70px;
+  --ease:cubic-bezier(.16,1,.3,1); --snap:cubic-bezier(.65,0,.35,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--void);color:var(--txt);
+  font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none} p{margin:0} img{max-width:100%;display:block}
+::selection{background:var(--acc);color:#000}
+
+.dsp{font-family:"Syne",sans-serif;font-weight:800;text-transform:uppercase;line-height:.86;letter-spacing:-.025em}
+.mono{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:11px;font-weight:400;letter-spacing:.18em;text-transform:uppercase}
+h1,h2,h3,h4{margin:0;font-weight:800}
+.lead{color:var(--txt-2);font-size:clamp(1rem,1.5vw,1.1rem);line-height:1.68;font-weight:300}
+.outline{color:transparent;-webkit-text-stroke:1.5px var(--txt);paint-order:stroke fill}
+.acc{color:var(--acc)}
+
+.wrap{width:100%;max-width:1240px;margin-inline:auto;padding-inline:clamp(20px,4vw,56px)}
+section{position:relative;padding-block:clamp(76px,10vw,140px)}
+
+.cols{position:fixed;inset:0;z-index:0;pointer-events:none;display:flex;justify-content:center}
+.cols div{width:100%;max-width:1240px;padding-inline:clamp(20px,4vw,56px);display:grid;grid-template-columns:repeat(6,1fr)}
+.cols span{border-left:1px solid var(--line-2)}
+.cols span:last-child{border-right:1px solid var(--line-2)}
+@media(max-width:760px){.cols div{grid-template-columns:repeat(2,1fr)}}
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+main,header,footer{position:relative;z-index:2}
+
+/* ══════════ HEADER ══════════ */
+.prog{position:fixed;top:0;left:0;height:2px;width:0;background:var(--acc);z-index:100;transition:width .1s linear}
+header{position:fixed;top:0;left:0;right:0;height:var(--nav-h);z-index:90;display:flex;align-items:center;
+  border-bottom:1px solid transparent;transition:background .4s var(--ease),border-color .4s}
+header.solid{background:rgba(6,6,5,.74);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom-color:var(--line)}
+.hdr{display:flex;align-items:center;justify-content:space-between;gap:20px;width:100%}
+.sig{font-family:"Syne",sans-serif;font-weight:800;font-size:15px;text-transform:uppercase;display:flex;align-items:center;gap:10px}
+.sig i{width:7px;height:7px;border-radius:50%;background:var(--acc);flex:none;animation:beat 2.6s var(--ease) infinite}
+@keyframes beat{0%{box-shadow:0 0 0 0 rgba(255,77,28,.55)}70%,100%{box-shadow:0 0 0 9px rgba(255,77,28,0)}}
+.hnav{display:flex;align-items:center;gap:22px}
+.hnav a{position:relative;color:var(--txt-2);transition:color .25s;
+  font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.15em;text-transform:uppercase}
+.hnav a sup{color:var(--txt-3);font-size:8px;margin-right:4px;transition:color .25s}
+.hnav a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:var(--acc);
+  transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+.hnav a:hover,.hnav a.on{color:var(--txt)}
+.hnav a:hover sup,.hnav a.on sup{color:var(--acc)}
+.hnav a:hover::after,.hnav a.on::after{transform:scaleX(1)}
+@media(max-width:1080px){.hnav{display:none}}
+.hcta{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 16px;border:1px solid var(--line);
+  border-radius:2px;font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+  transition:background .3s var(--ease),color .3s,border-color .3s;white-space:nowrap}
+.hcta svg{width:14px;height:14px}
+.hcta:hover{background:var(--acc);border-color:var(--acc);color:#000}
+
+/* ══════════ HERO ══════════ */
+.hero{padding-top:calc(var(--nav-h) + clamp(50px,9vh,104px));padding-bottom:clamp(44px,6vw,74px)}
+.hero-meta{display:flex;align-items:center;gap:14px;color:var(--txt-3);flex-wrap:wrap;
+  padding-bottom:22px;margin-bottom:clamp(26px,4vw,42px);border-bottom:1px solid var(--line)}
+.hero-meta .live{display:inline-flex;align-items:center;gap:8px;color:var(--acc)}
+.hero-meta .live i{width:6px;height:6px;border-radius:50%;background:var(--acc);flex:none}
+.hero-meta .sp{flex:1;min-width:16px;height:1px;background:var(--line)}
+.hero h1{font-size:clamp(2.9rem,12vw,9.2rem)}
+.hero h1 .ln{display:block;overflow:hidden}
+.hero h1 .ln>span{display:block;transform:translateY(100%);transition:transform 1.05s var(--ease)}
+.ready .hero h1 .ln>span{transform:none}
+.hero h1 .ln:nth-child(2)>span{transition-delay:.09s}
+.hero h1 .ln:nth-child(3)>span{transition-delay:.18s}
+.hero-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(28px,5vw,72px);margin-top:clamp(32px,5vw,52px);align-items:start}
+@media(max-width:820px){.hero-grid{grid-template-columns:1fr;gap:32px}}
+.hero-grid .lead{max-width:50ch}
+.stats{display:grid;border-top:1px solid var(--line)}
+.stat{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid var(--line)}
+.stat dt{color:var(--txt-3)} .stat dd{margin:0;font-family:"Syne",sans-serif;font-weight:700;font-size:.92rem;text-align:right}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(28px,4vw,40px)}
+
+.btn{--bg:var(--acc);--fg:#000;position:relative;display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 26px;
+  border:1px solid var(--bg);border-radius:2px;background:var(--bg);color:var(--fg);overflow:hidden;
+  font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  transition:color .35s var(--snap),border-color .35s}
+.btn svg{width:16px;height:16px;flex:none;position:relative;z-index:1} .btn span{position:relative;z-index:1}
+.btn::before{content:"";position:absolute;inset:0;background:var(--fg);transform:translateY(101%);transition:transform .42s var(--snap)}
+.btn:hover{color:var(--bg)} .btn:hover::before{transform:translateY(0)}
+.btn-line{--bg:transparent;--fg:var(--txt);border-color:var(--line)}
+.btn-line:hover{color:#000;border-color:var(--txt)}
+
+/* ══════════ MARQUEE ══════════ */
+.marq{position:relative;overflow:hidden;padding:20px 0;border-block:1px solid var(--line);background:var(--panel)}
+.marq-t{display:flex;width:max-content;animation:slide 40s linear infinite}
+.marq:hover .marq-t{animation-play-state:paused}
+@keyframes slide{to{transform:translateX(-50%)}}
+.marq-t ul{display:flex;align-items:center;gap:40px;margin:0;padding:0 20px;list-style:none;flex:none}
+.marq-t li{font-family:"Syne",sans-serif;font-weight:700;font-size:clamp(.9rem,1.6vw,1.3rem);
+  text-transform:uppercase;color:var(--txt-2);white-space:nowrap}
+.marq-t li.dot{color:var(--acc);font-size:.75em}
+
+/* ══════════ SECTION HEADS ══════════ */
+.shead{display:flex;align-items:center;gap:18px;margin-bottom:clamp(32px,4.5vw,54px)}
+.shead .num{color:var(--acc);flex:none} .shead .bar{flex:1;height:1px;background:var(--line)} .shead .nm{color:var(--txt-2);flex:none}
+.stitle{font-size:clamp(2rem,6vw,4.4rem);margin-bottom:20px}
+.sintro{max-width:58ch;margin-bottom:clamp(36px,5vw,56px)}
+
+/* ══════════ CURRENTLY ══════════ */
+.log{border-top:1px solid var(--line)}
+.logi{display:grid;grid-template-columns:64px 1fr auto;gap:clamp(14px,3vw,36px);align-items:start;
+  padding:clamp(20px,2.8vw,30px) 0;border-bottom:1px solid var(--line);position:relative;transition:padding-left .45s var(--ease)}
+.logi::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--acc);
+  transform:scaleY(0);transform-origin:bottom;transition:transform .45s var(--ease)}
+.logi:hover{padding-left:20px} .logi:hover::before{transform:scaleY(1);transform-origin:top}
+.logi .idx{color:var(--txt-3);padding-top:5px;transition:color .35s} .logi:hover .idx{color:var(--acc)}
+.logi h3{font-family:"Syne",sans-serif;font-size:clamp(1.1rem,2.3vw,1.5rem);letter-spacing:-.01em;margin-bottom:7px;font-weight:700}
+.logi p{color:var(--txt-2);font-size:.95rem;font-weight:300;max-width:62ch}
+.st{display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border:1px solid var(--line);border-radius:2px;
+  color:var(--txt-3);white-space:nowrap;margin-top:4px}
+.st i{width:5px;height:5px;border-radius:50%;background:currentColor;flex:none}
+.st.on{color:var(--acc);border-color:rgba(255,77,28,.34);background:var(--acc-dim)}
+@media(max-width:700px){.logi{grid-template-columns:42px 1fr;gap:13px}.st{grid-column:2;justify-self:start}}
+
+/* ══════════ VENTURES ══════════ */
+.vent{border:1px solid var(--line);background:var(--panel);margin-bottom:16px;overflow:hidden}
+.vent-top{display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,3.5vw,42px);align-items:center;
+  padding:clamp(24px,3.4vw,40px);border-bottom:1px solid var(--line)}
+@media(max-width:700px){.vent-top{grid-template-columns:1fr;gap:20px}}
+.plate{width:clamp(88px,13vw,128px);height:clamp(88px,13vw,128px);flex:none;border-radius:3px;
+  background:#fff;display:grid;place-items:center;padding:11px;position:relative;overflow:hidden}
+.plate img{width:100%;height:100%;object-fit:contain}
+.plate::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 1px rgba(0,0,0,.10)}
+.vent-id .kk{color:var(--brand,var(--acc));margin-bottom:10px;display:block}
+.vent-id h3{font-family:"Syne",sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:-.02em;
+  font-size:clamp(1.7rem,4.6vw,3rem);line-height:.92;margin-bottom:10px}
+.vent-id .tag{color:var(--txt-2);font-size:.98rem;font-weight:300;max-width:52ch}
+.vent-body{padding:clamp(24px,3.4vw,40px)}
+.vent-body>p{color:var(--txt-2);font-weight:300;font-size:.98rem;max-width:74ch;margin-bottom:24px}
+.vrole{display:inline-flex;align-items:center;gap:9px;padding:8px 14px;border-radius:2px;margin-bottom:18px;
+  border:1px solid color-mix(in srgb,var(--brand,var(--acc)) 42%,transparent);
+  background:color-mix(in srgb,var(--brand,var(--acc)) 12%,transparent);color:var(--brand,var(--acc))}
+.vrole svg{width:14px;height:14px;flex:none}
+
+/* org tree */
+.tree{margin:34px 0 6px}
+.tree-root{display:flex;justify-content:center}
+.tree-root span{border:1px solid var(--airo);color:var(--airo);padding:10px 26px;border-radius:2px;
+  font-family:"Syne",sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.04em;font-size:.95rem;
+  background:rgba(47,107,255,.09)}
+/* connector: centre line runs the full drop; rail carries the two outer drops */
+.tree-link{position:relative;height:52px}
+.tree-link::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:1px;background:var(--line)}
+.tree-link .rail{position:absolute;top:26px;left:16.667%;right:16.667%;height:26px;
+  border-top:1px solid var(--line);border-left:1px solid var(--line);border-right:1px solid var(--line)}
+.branches{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line)}
+@media(max-width:760px){
+  .branches{grid-template-columns:1fr}
+  .tree-link{display:none}
+  .tree-root{margin-bottom:18px}
+}
+.br{background:var(--void);padding:clamp(20px,2.6vw,28px);position:relative;transition:background .4s var(--ease)}
+.br::after{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:var(--brand);
+  transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.br:hover{background:var(--panel-2)} .br:hover::after{transform:scaleX(1)}
+.br-h{display:flex;align-items:center;gap:13px;margin-bottom:16px}
+.br-plate{width:46px;height:46px;flex:none;border-radius:2px;background:#fff;padding:5px;display:grid;place-items:center}
+.br-plate img{width:100%;height:100%;object-fit:contain}
+.br-h h4{font-family:"Syne",sans-serif;font-weight:800;text-transform:uppercase;font-size:1.02rem;letter-spacing:-.01em;line-height:1.1}
+.br-h .s{display:block;color:var(--brand);font-size:9.5px;letter-spacing:.16em;margin-top:4px;
+  font-family:"JetBrains Mono",monospace}
+.br p{color:var(--txt-2);font-size:.9rem;font-weight:300;margin-bottom:14px}
+.br ul{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none}
+.br li{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--txt-3);border:1px solid var(--line);border-radius:2px;padding:4px 8px}
+
+/* flex so the last row fills — a grid leaves dead cells when the count isn't a multiple */
+.vfacts{display:flex;flex-wrap:wrap;gap:1px;background:var(--line);
+  border:1px solid var(--line);margin-top:26px}
+.vfact{background:var(--void);padding:16px 18px;flex:1 1 150px;min-width:0}
+.vfact .k{color:var(--txt-3);display:block;margin-bottom:6px}
+.vfact .v{font-family:"Syne",sans-serif;font-weight:700;font-size:1.02rem}
+
+.clients{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+.clients span{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--txt-2);border:1px solid var(--line);border-radius:2px;padding:6px 10px;background:var(--void)}
+
+/* ══════════ WORK CARDS ══════════ */
+.work{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(max-width:820px){.work{grid-template-columns:1fr}}
+.wk{border:1px solid var(--line);background:var(--panel);overflow:hidden;display:flex;flex-direction:column;
+  transition:border-color .4s var(--ease),transform .4s var(--ease)}
+.wk:hover{border-color:color-mix(in srgb,var(--brand,var(--acc)) 55%,var(--line));transform:translateY(-4px)}
+.wk-shot{position:relative;background:var(--panel-2);border-bottom:1px solid var(--line);overflow:hidden}
+.wk-bar{display:flex;align-items:center;gap:6px;padding:9px 12px;border-bottom:1px solid var(--line);background:var(--void)}
+.wk-bar i{width:8px;height:8px;border-radius:50%;background:var(--line);flex:none}
+.wk-bar .u{flex:1;text-align:center;color:var(--txt-3);font-family:"JetBrains Mono",monospace;font-size:9.5px;
+  letter-spacing:.08em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.wk-shot img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top center;
+  transition:transform .7s var(--ease),filter .5s;filter:grayscale(.28) contrast(1.03)}
+.wk:hover .wk-shot img{transform:scale(1.035);filter:none}
+.wk-b{padding:clamp(20px,2.6vw,26px);display:flex;flex-direction:column;flex:1}
+.wk-k{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+.wk-k .k{color:var(--brand,var(--acc))}
+.wk-k .live{display:inline-flex;align-items:center;gap:6px;color:var(--txt-3)}
+.wk-k .live i{width:5px;height:5px;border-radius:50%;background:#37d17c;flex:none}
+.wk h3{font-family:"Syne",sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:-.015em;
+  font-size:clamp(1.2rem,2.6vw,1.6rem);line-height:1;margin-bottom:11px}
+.wk p{color:var(--txt-2);font-size:.93rem;font-weight:300;margin-bottom:18px;flex:1}
+.wk ul{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 20px;padding:0;list-style:none}
+.wk li{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--txt-3);border:1px solid var(--line);border-radius:2px;padding:4px 8px}
+.wk-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
+.wl{display:inline-flex;align-items:center;gap:7px;height:38px;padding:0 14px;border:1px solid var(--line);border-radius:2px;
+  font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--txt-2);transition:.3s var(--ease)}
+.wl svg{width:13px;height:13px}
+.wl:hover{background:var(--txt);border-color:var(--txt);color:#000}
+.wl.pri{border-color:color-mix(in srgb,var(--brand,var(--acc)) 50%,transparent);color:var(--brand,var(--acc))}
+.wl.pri:hover{background:var(--brand,var(--acc));border-color:var(--brand,var(--acc));color:#000}
+
+/* ══════════ GITHUB LAB ══════════ */
+.lab{border:1px solid var(--line);background:var(--panel)}
+.lab-h{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;
+  padding:clamp(20px,2.6vw,28px);border-bottom:1px solid var(--line)}
+.lab-h .who{display:flex;align-items:center;gap:12px}
+.lab-h .who svg{width:26px;height:26px;flex:none}
+.lab-h .who b{font-family:"Syne",sans-serif;font-weight:700;font-size:1.02rem;display:block}
+.lab-h .who span{color:var(--txt-3);font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.14em}
+.tiles{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border-bottom:1px solid var(--line)}
+@media(max-width:820px){.tiles{grid-template-columns:repeat(2,1fr)}}
+.tile{background:var(--panel);padding:clamp(18px,2.4vw,24px)}
+.tile .n{font-family:"Syne",sans-serif;font-weight:800;font-size:clamp(1.7rem,4vw,2.4rem);line-height:1;
+  letter-spacing:-.03em;margin-bottom:8px}
+.tile .k{color:var(--txt-3);display:block}
+.heat-wrap{padding:clamp(20px,2.6vw,28px)}
+.heat-top{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:16px}
+.heat-top .t{color:var(--txt-2)}
+.heat-scroll{overflow-x:auto;padding-bottom:8px}
+.heat-scroll::-webkit-scrollbar{height:5px}
+.heat-scroll::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
+.months{display:grid;grid-auto-flow:column;gap:3px;margin-bottom:5px;min-width:max-content}
+.months span{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.08em;color:var(--txt-3);
+  width:11px;white-space:nowrap;overflow:visible}
+.heat{display:grid;grid-auto-flow:column;grid-template-rows:repeat(7,11px);gap:3px;min-width:max-content}
+.heat i{width:11px;height:11px;border-radius:1.5px;background:rgba(255,255,255,.055);display:block}
+.heat i[data-l="1"]{background:rgba(255,77,28,.32)}
+.heat i[data-l="2"]{background:rgba(255,77,28,.55)}
+.heat i[data-l="3"]{background:rgba(255,77,28,.78)}
+.heat i[data-l="4"]{background:var(--acc)}
+.heat-leg{display:flex;align-items:center;gap:7px;margin-top:14px;color:var(--txt-3)}
+.heat-leg i{width:11px;height:11px;border-radius:1.5px;background:rgba(255,255,255,.055);display:block}
+.heat-leg i[data-l="1"]{background:rgba(255,77,28,.32)}
+.heat-leg i[data-l="2"]{background:rgba(255,77,28,.55)}
+.heat-leg i[data-l="3"]{background:rgba(255,77,28,.78)}
+.heat-leg i[data-l="4"]{background:var(--acc)}
+.repos{border-top:1px solid var(--line)}
+.rp{display:grid;grid-template-columns:1fr auto auto;gap:clamp(12px,2.4vw,26px);align-items:center;
+  padding:15px clamp(20px,2.6vw,28px);border-bottom:1px solid var(--line);transition:background .3s var(--ease)}
+.rp:last-child{border-bottom:none}
+.rp:hover{background:var(--panel-2)}
+.rp .nm{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.02em;text-transform:none;
+  color:var(--txt);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rp:hover .nm{color:var(--acc)}
+.rp .lg{display:inline-flex;align-items:center;gap:7px;color:var(--txt-3);
+  font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.rp .lg i{width:8px;height:8px;border-radius:50%;flex:none}
+.rp .dt{color:var(--txt-3);font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.1em;white-space:nowrap}
+@media(max-width:640px){.rp{grid-template-columns:1fr auto}.rp .dt{display:none}}
+
+/* ══════════ CAPABILITIES ══════════ */
+.caps{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+@media(max-width:720px){.caps{grid-template-columns:1fr}}
+.cap{background:var(--void);padding:clamp(24px,3.4vw,40px);position:relative;overflow:hidden;transition:background .45s var(--ease)}
+.cap::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--acc);
+  transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.cap:hover{background:var(--panel)} .cap:hover::after{transform:scaleX(1)}
+.cap-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:clamp(30px,4.5vw,54px)}
+.cap-top .k{color:var(--txt-3)}
+.cap-ic{width:22px;height:22px;color:var(--acc);opacity:.55;transition:opacity .4s,transform .5s var(--ease)}
+.cap:hover .cap-ic{opacity:1;transform:rotate(-8deg) scale(1.12)}
+.cap h3{font-family:"Syne",sans-serif;font-size:clamp(1.3rem,2.9vw,1.85rem);text-transform:uppercase;
+  letter-spacing:-.015em;line-height:1;margin-bottom:13px}
+.cap p{color:var(--txt-2);font-size:.94rem;font-weight:300;margin-bottom:18px;max-width:44ch}
+.cap ul{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none}
+.cap li{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--txt-3);border:1px solid var(--line);border-radius:2px;padding:5px 9px}
+
+/* ══════════ CHANNELS ══════════ */
+.chan{border-top:1px solid var(--line)}
+.ch{position:relative;display:flex;align-items:center;gap:clamp(13px,2.8vw,28px);
+  padding:clamp(16px,2.4vw,24px) clamp(13px,2.2vw,24px);border-bottom:1px solid var(--line);overflow:hidden;isolation:isolate}
+.ch::before{content:"";position:absolute;inset:0;background:var(--acc);z-index:-1;transform:translateY(101%);transition:transform .5s var(--snap)}
+.ch:hover::before{transform:translateY(0)} .ch:hover{color:#000}
+.ch-ic{width:25px;height:25px;flex:none;color:var(--txt-2);transition:color .35s var(--snap),transform .5s var(--ease)}
+.ch:hover .ch-ic{color:#000;transform:scale(1.14) rotate(-6deg)}
+.ch-nm{font-family:"Syne",sans-serif;font-weight:700;text-transform:uppercase;
+  font-size:clamp(1.4rem,4.3vw,2.7rem);letter-spacing:-.025em;line-height:1;flex:none;transition:transform .5s var(--ease)}
+.ch:hover .ch-nm{transform:translateX(10px)}
+.ch-d{flex:1;color:var(--txt-3);text-align:right;transition:color .35s var(--snap);min-width:0;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ch:hover .ch-d{color:rgba(0,0,0,.66)}
+.ch-a{width:19px;height:19px;flex:none;color:var(--txt-3);transition:color .35s var(--snap),transform .5s var(--ease)}
+.ch:hover .ch-a{color:#000;transform:translate(4px,-4px)}
+@media(max-width:640px){.ch-d{display:none}}
+
+/* ══════════ CONTACT / FOOTER ══════════ */
+.contact{border-top:1px solid var(--line);background:var(--panel)}
+.ct-grid{display:grid;grid-template-columns:1fr auto;gap:clamp(30px,5vw,60px);align-items:end}
+@media(max-width:820px){.ct-grid{grid-template-columns:1fr;align-items:start}}
+.ct-grid h2{font-size:clamp(2.3rem,7.6vw,5.6rem)}
+.ct-side{display:grid;gap:18px;min-width:min(290px,100%)}
+.ct-row{display:grid;gap:5px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.ct-row .k{color:var(--txt-3)}
+.ct-row a{font-family:"Syne",sans-serif;font-weight:700;font-size:1.02rem;transition:color .25s}
+.ct-row a:hover{color:var(--acc)}
+.ct-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(32px,4.5vw,46px)}
+footer{border-top:1px solid var(--line);padding-block:clamp(42px,6vw,62px)}
+.fgrid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:clamp(26px,4vw,48px);margin-bottom:clamp(38px,5vw,56px)}
+@media(max-width:760px){.fgrid{grid-template-columns:1fr 1fr}.fbrand{grid-column:1/-1}}
+.fbrand .m{font-family:"Syne",sans-serif;font-weight:800;text-transform:uppercase;
+  font-size:clamp(1.6rem,4.2vw,2.5rem);line-height:.9;letter-spacing:-.02em;margin-bottom:13px}
+.fbrand p{color:var(--txt-2);font-size:.94rem;font-weight:300;max-width:36ch}
+.fcol h4{margin:0 0 15px;color:var(--txt-3);font-weight:400}
+.fcol a{display:block;color:var(--txt-2);font-size:.92rem;padding:5px 0;transition:color .25s,transform .25s var(--ease)}
+.fcol a:hover{color:var(--acc);transform:translateX(3px)}
+.fbot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;padding-top:26px;border-top:1px solid var(--line)}
+.fbot p{color:var(--txt-3)}
+.fsoc{display:flex;flex-wrap:wrap;gap:9px}
+.fsoc a{width:36px;height:36px;display:grid;place-items:center;border:1px solid var(--line);border-radius:2px;
+  color:var(--txt-2);transition:.3s var(--ease)}
+.fsoc a svg{width:15px;height:15px}
+.fsoc a:hover{background:var(--acc);border-color:var(--acc);color:#000;transform:translateY(-2px)}
+
+.wafab{position:fixed;right:clamp(16px,3vw,28px);bottom:clamp(16px,3vw,28px);z-index:95;
+  display:inline-flex;align-items:center;gap:0;height:52px;padding:0 15px;border:1px solid var(--acc);border-radius:2px;
+  background:var(--acc);color:#000;font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.16em;
+  text-transform:uppercase;overflow:hidden;box-shadow:0 14px 40px -14px rgba(255,77,28,.7);
+  transition:gap .45s var(--ease),padding .45s var(--ease),transform .3s var(--ease)}
+.wafab svg{width:21px;height:21px;flex:none}
+.wafab b{max-width:0;overflow:hidden;white-space:nowrap;font-weight:400;transition:max-width .45s var(--ease)}
+.wafab:hover{gap:10px;padding-right:20px;transform:translateY(-2px)} .wafab:hover b{max-width:130px}
+
+.rv{opacity:0;transform:translateY(22px);transition:opacity .85s var(--ease),transform .85s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition-duration:.01ms!important}
+  .rv{opacity:1;transform:none}.hero h1 .ln>span{transform:none}html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<div class="cols"><div><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+<div class="grain"></div>
+<div class="prog" id="prog"></div>
+
+<header id="hdr">
+  <div class="wrap hdr">
+    <a href="#top" class="sig"><i></i> Nehal&nbsp;S.</a>
+    <nav class="hnav">
+      <a href="#log"     data-sec="log"><sup>01</sup>Currently</a>
+      <a href="#vent"    data-sec="vent"><sup>02</sup>Ventures</a>
+      <a href="#work"    data-sec="work"><sup>03</sup>Work</a>
+      <a href="#lab"     data-sec="lab"><sup>04</sup>Lab</a>
+      <a href="#caps"    data-sec="caps"><sup>05</sup>Craft</a>
+      <a href="#chan"    data-sec="chan"><sup>06</sup>Channels</a>
+      <a href="#contact" data-sec="contact"><sup>07</sup>Contact</a>
+    </nav>
+    <a class="hcta" href="https://wa.me/919743242161?text=Hi%20Nehal%2C%20I%20found%20your%20site." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.69 8.23-8.23 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.22.25-.87.85-.87 2.07s.89 2.4 1.02 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.2-.58.2-1.08.15-1.18-.06-.11-.23-.17-.48-.29z"/></svg>
+      Let's talk
+    </a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-meta mono">
+      <span class="live"><i></i> Available for work</span>
+      <span class="sp"></span>
+      <span>Founder · AIRO Company</span>
+      <span class="sp"></span>
+      <span>B.Tech (Hons) · RV University</span>
+    </div>
+
+    <h1 class="dsp">
+      <span class="ln"><span>Build it.</span></span>
+      <span class="ln"><span class="acc" data-scramble>Brand it.</span></span>
+      <span class="ln"><span class="outline">Ship it.</span></span>
+    </h1>
+
+    <div class="hero-grid">
+      <div>
+        <p class="lead rv">
+          I'm <strong style="color:var(--txt);font-weight:600">Nehal</strong> — founder of
+          <strong style="color:var(--txt);font-weight:600">AIRO Company</strong>, building a group that does
+          branding, marketing and the software businesses actually run on. I run
+          <strong style="color:var(--txt);font-weight:600">SPREAD Media</strong> for local brands, sit on the
+          <strong style="color:var(--txt);font-weight:600">Board of Directors at Rotaract Club of Mandya</strong>,
+          and write the code myself — design, motion and front-end in the same pair of hands.
+        </p>
+        <div class="hero-cta rv">
+          <a class="btn" href="https://wa.me/919743242161?text=Hi%20Nehal%2C%20I%20found%20your%20site." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.69 8.23-8.23 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.22.25-.87.85-.87 2.07s.89 2.4 1.02 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.2-.58.2-1.08.15-1.18-.06-.11-.23-.17-.48-.29z"/></svg>
+            <span>WhatsApp me</span>
+          </a>
+          <a class="btn btn-line" href="#vent"><span>See the ventures</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+          </a>
+        </div>
+      </div>
+      <dl class="stats mono rv">
+        <div class="stat"><dt>Company</dt><dd>AIRO — 3 divisions</dd></div>
+        <div class="stat"><dt>Agency</dt><dd>SPREAD Media</dd></div>
+        <div class="stat"><dt>Rotaract</dt><dd class="acc">Board of Directors</dd></div>
+        <div class="stat"><dt>Shipped</dt><dd>5 live sites</dd></div>
+        <div class="stat"><dt>Reply time</dt><dd>Same day</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<div class="marq" aria-hidden="true">
+  <div class="marq-t">
+    <ul>
+      <li>AIRO Company</li><li class="dot">◆</li><li>SPREAD Media</li><li class="dot">◆</li>
+      <li>Branding</li><li class="dot">◆</li><li>Motion Design</li><li class="dot">◆</li>
+      <li>Front-end</li><li class="dot">◆</li><li>Rotaract Mandya</li><li class="dot">◆</li>
+      <li>Figma</li><li class="dot">◆</li><li>Web Development</li><li class="dot">◆</li>
+    </ul>
+    <ul>
+      <li>AIRO Company</li><li class="dot">◆</li><li>SPREAD Media</li><li class="dot">◆</li>
+      <li>Branding</li><li class="dot">◆</li><li>Motion Design</li><li class="dot">◆</li>
+      <li>Front-end</li><li class="dot">◆</li><li>Rotaract Mandya</li><li class="dot">◆</li>
+      <li>Figma</li><li class="dot">◆</li><li>Web Development</li><li class="dot">◆</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ═══════ 01 CURRENTLY ═══════ -->
+<section id="log">
+  <div class="wrap">
+    <div class="shead mono rv"><span class="num">01</span><span class="bar"></span><span class="nm">Currently</span></div>
+    <h2 class="dsp stitle rv">What's<br />running now</h2>
+    <p class="lead sintro rv">A live log of what I'm building, running and shipping. Updated whenever something actually changes.</p>
+
+    <div class="log">
+      <article class="logi rv"><div class="idx mono">001</div>
+        <div><h3>Building AIRO into a multi-division company</h3>
+        <p>Media is trading today; Farms and Events are staged behind it. One brand, three businesses, built in order.</p></div>
+        <div class="st on mono"><i></i> Active</div></article>
+
+      <article class="logi rv"><div class="idx mono">002</div>
+        <div><h3>Stellar Fitness Club — website + gym platform</h3>
+        <p>AIRO Media's flagship build: a premium public site plus admin, trainer and member dashboards, attendance, diet and progress tracking.</p></div>
+        <div class="st mono"><i></i> In progress</div></article>
+
+      <article class="logi rv"><div class="idx mono">003</div>
+        <div><h3>Running SPREAD Media for local brands</h3>
+        <p>Branding, social and print for cafés, bakeries, sports and service businesses across Mandya and Bengaluru.</p></div>
+        <div class="st on mono"><i></i> Active</div></article>
+
+      <article class="logi rv"><div class="idx mono">004</div>
+        <div><h3>Board of Directors — Rotaract Club of Mandya</h3>
+        <p>Serving as Joint Secretary for 2025&ndash;26, and the person who designed and built the club's website.</p></div>
+        <div class="st on mono"><i></i> Serving</div></article>
+
+      <article class="logi rv"><div class="idx mono">005</div>
+        <div><h3>B.Tech (Hons) at RV University</h3>
+        <p>Studying AI and computer science — algorithms, systems and databases, applied straight back into what I'm building.</p></div>
+        <div class="st on mono"><i></i> Ongoing</div></article>
+
+      <article class="logi rv"><div class="idx mono">006</div>
+        <div><h3>Vinayaka Jaggery — AIRO Farms' first product line</h3>
+        <p>Organic jaggery and coconut powder: sourcing, packaging and brand, ahead of a direct-to-consumer launch.</p></div>
+        <div class="st mono"><i></i> Queued</div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 02 VENTURES ═══════ -->
+<section id="vent">
+  <div class="wrap">
+    <div class="shead mono rv"><span class="num">02</span><span class="bar"></span><span class="nm">Ventures &amp; Roles</span></div>
+    <h2 class="dsp stitle rv">What I run</h2>
+    <p class="lead sintro rv">A parent company with three divisions, an agency serving local businesses, and a seat on a club board. Here's each one.</p>
+
+    <!-- AIRO -->
+    <div class="vent rv" style="--brand:var(--airo)">
+      <div class="vent-top">
+        <div class="plate"><img src="assets/logos/airo.png" alt="AIRO Company logo" loading="lazy" /></div>
+        <div class="vent-id">
+          <span class="kk mono">Parent company · Founder</span>
+          <h3>AIRO Company</h3>
+          <p class="tag">One Vision. Endless Possibilities.</p>
+        </div>
+      </div>
+      <div class="vent-body">
+        <div class="vrole mono">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 7v10l9 5 9-5V7z"/><path d="M12 22V12M3 7l9 5 9-5"/></svg>
+          Founder
+        </div>
+        <p>
+          AIRO isn't meant to stay an agency. It's built to become a multi-business group — starting with the
+          division that earns today, and adding the next only when the last one stands on its own. The long game is
+          turning the systems we build for clients into products we own.
+        </p>
+
+        <div class="tree">
+          <div class="tree-root"><span>AIRO</span></div>
+          <div class="tree-link" aria-hidden="true"><span class="rail"></span></div>
+          <div class="branches">
+            <article class="br" style="--brand:var(--media)">
+              <div class="br-h">
+                <div class="br-plate"><img src="assets/logos/airo-media.png" alt="AIRO Media logo" loading="lazy" /></div>
+                <div><h4>AIRO Media</h4><span class="s">Operating now</span></div>
+              </div>
+              <p>Branding, digital marketing, content and the websites and software behind them. The engine that funds everything else.</p>
+              <ul><li>Branding</li><li>Marketing</li><li>Web</li><li>Software</li></ul>
+            </article>
+
+            <article class="br" style="--brand:var(--farms)">
+              <div class="br-h">
+                <div class="br-plate"><img src="assets/logos/airo-farms.png" alt="AIRO Farms logo" loading="lazy" /></div>
+                <div><h4>AIRO Farms</h4><span class="s">In development</span></div>
+              </div>
+              <p>Agriculture and food products — organic jaggery, coconut powder and more, sourced, packaged and sold under our own brand.</p>
+              <ul><li>Agri</li><li>FMCG</li><li>Packaging</li><li>D2C</li></ul>
+            </article>
+
+            <article class="br" style="--brand:var(--events)">
+              <div class="br-h">
+                <div class="br-plate"><img src="assets/logos/airo-events.png" alt="AIRO Events logo" loading="lazy" /></div>
+                <div><h4>AIRO Events</h4><span class="s">Planned</span></div>
+              </div>
+              <p>Corporate, college and brand events — launches and experiences, backed by the same creative and marketing team.</p>
+              <ul><li>Corporate</li><li>Launches</li><li>Cultural</li><li>Promo</li></ul>
+            </article>
+          </div>
+        </div>
+
+        <div class="vfacts">
+          <div class="vfact"><span class="k mono">Divisions</span><span class="v">3 planned</span></div>
+          <div class="vfact"><span class="k mono">Trading now</span><span class="v">AIRO Media</span></div>
+          <div class="vfact"><span class="k mono">Flagship build</span><span class="v">Stellar Fitness</span></div>
+          <div class="vfact"><span class="k mono">Model</span><span class="v">Projects + retainers</span></div>
+          <div class="vfact"><span class="k mono">Next up</span><span class="v">AIRO Technology</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SPREAD -->
+    <div class="vent rv" style="--brand:var(--spread)">
+      <div class="vent-top">
+        <div class="plate"><img src="assets/logos/spread.png" alt="SPREAD Media logo" loading="lazy" /></div>
+        <div class="vent-id">
+          <span class="kk mono">Creative agency · Co-founder</span>
+          <h3>SPREAD Media</h3>
+          <p class="tag">Reaching People. Growing Business.</p>
+        </div>
+      </div>
+      <div class="vent-body">
+        <div class="vrole mono">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-8-8 18-2-8z"/></svg>
+          Design &amp; Web
+        </div>
+        <p>
+          SPREAD works with local businesses that already do the hard part well but look invisible online —
+          bakeries, cafés, sports stores, borewell contractors. We handle the identity, the social calendar,
+          the festival creatives and the website, then keep it running month to month.
+        </p>
+        <div class="clients">
+          <span>Nirantara Bakes</span><span>Avi Sports</span><span>The P's Cheese Cake</span>
+          <span>Akka Thangi</span><span>Tea Bench</span><span>Basaveshwara Borewells</span><span>Donga</span>
+        </div>
+        <div class="vfacts">
+          <div class="vfact"><span class="k mono">Clients served</span><span class="v">8+ local brands</span></div>
+          <div class="vfact"><span class="k mono">Services</span><span class="v">Brand · Social · Web</span></div>
+          <div class="vfact"><span class="k mono">Website</span><span class="v">Designed &amp; built by me</span></div>
+          <div class="vfact"><span class="k mono">Status</span><span class="v">Active</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROTARACT -->
+    <div class="vent rv" style="--brand:var(--rota)">
+      <div class="vent-top">
+        <div class="plate" style="background:#0e0e0c;border:1px solid var(--line)">
+          <svg viewBox="0 0 24 24" fill="var(--rota)" style="width:70%;height:70%"><path d="M12 1.6 13.5 5l3.6-1.2-1.2 3.6L19.3 9l-3 2.2 2.2 3-3.7.1-.4 3.7-2.4-2.8-2.4 2.8-.4-3.7-3.7-.1 2.2-3-3-2.2 3.4-1.6L6.9 3.8 10.5 5z"/><circle cx="12" cy="12.4" r="3.1" fill="none" stroke="var(--rota)" stroke-width="1.4"/><path d="M8 19.4h8v1.5H8zM9 21.4h6V23H9z" /></svg>
+        </div>
+        <div class="vent-id">
+          <span class="kk mono">Leadership · District 3192</span>
+          <h3>Rotaract Club<br />of Mandya</h3>
+          <p class="tag">Service &bull; Leadership &bull; Fellowship</p>
+        </div>
+      </div>
+      <div class="vent-body">
+        <div class="vrole mono">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"/><path d="M8.2 13.8 7 22l5-2.6L17 22l-1.2-8.2"/></svg>
+          Board of Directors — Joint Secretary
+        </div>
+        <p>
+          I sit on the Board of Directors of the Rotaract Club of Mandya as Joint Secretary for 2025&ndash;26.
+          The club was chartered in 2025 under the Rotary Club of Mandya and runs community service, professional
+          development and fellowship programmes across the district. I also designed and built the club's website.
+        </p>
+        <div class="vfacts">
+          <div class="vfact"><span class="k mono">Role</span><span class="v">Joint Secretary</span></div>
+          <div class="vfact"><span class="k mono">Term</span><span class="v">2025 &ndash; 26</span></div>
+          <div class="vfact"><span class="k mono">District</span><span class="v">3192</span></div>
+          <div class="vfact"><span class="k mono">Chartered</span><span class="v">2025</span></div>
+          <div class="vfact"><span class="k mono">Website</span><span class="v">Built by me</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 03 WORK ═══════ -->
+<section id="work">
+  <div class="wrap">
+    <div class="shead mono rv"><span class="num">03</span><span class="bar"></span><span class="nm">Selected Work</span></div>
+    <h2 class="dsp stitle rv">Things I've<br />actually shipped</h2>
+    <p class="lead sintro rv">Live sites, written by hand and deployed. Every screenshot below links to the running thing and its source.</p>
+
+    <div class="work">
+
+      <article class="wk rv" style="--brand:var(--rota)">
+        <div class="wk-shot">
+          <div class="wk-bar"><i></i><i></i><i></i><span class="u">nehals.me/Rotaract.mandya</span></div>
+          <img src="assets/shots/rotaract.png" alt="Rotaract Club of Mandya website homepage" loading="lazy" />
+        </div>
+        <div class="wk-b">
+          <div class="wk-k"><span class="k mono">Club website</span><span class="live mono"><i></i> Live</span></div>
+          <h3>Rotaract Club<br />of Mandya</h3>
+          <p>The official club site — about, board of directors, members, projects and contact. Dark editorial layout with an interactive district map. Built and maintained by me as a member of the board.</p>
+          <ul><li>HTML</li><li>CSS</li><li>JavaScript</li><li>GitHub Pages</li></ul>
+          <div class="wk-links">
+            <a class="wl pri" href="https://nehals.me/Rotaract.mandya/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>Visit site</a>
+            <a class="wl" href="https://github.com/NEHAL-S-DEVLR/Rotaract.mandya" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.09.68-.22.68-.49l-.01-1.72c-2.78.62-3.37-1.37-3.37-1.37-.46-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.12 2.91.85.09-.66.35-1.12.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9l-.01 2.82c0 .27.18.59.69.49A10.06 10.06 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>Source</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="wk rv" style="--brand:var(--spread)">
+        <div class="wk-shot">
+          <div class="wk-bar"><i></i><i></i><i></i><span class="u">nehals.me/SPREAD-media</span></div>
+          <img src="assets/shots/spread.png" alt="SPREAD Media website homepage" loading="lazy" />
+        </div>
+        <div class="wk-b">
+          <div class="wk-k"><span class="k mono">Agency website</span><span class="live mono"><i></i> Live</span></div>
+          <h3>SPREAD Media</h3>
+          <p>The agency's own site — a cinematic dark entry screen, services, portfolio and enquiry flow. Designed and built end to end, from the logo treatment to the deployment.</p>
+          <ul><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Branding</li></ul>
+          <div class="wk-links">
+            <a class="wl pri" href="https://nehals.me/SPREAD-media/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>Visit site</a>
+            <a class="wl" href="https://github.com/NEHAL-S-DEVLR/SPREAD-media" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.09.68-.22.68-.49l-.01-1.72c-2.78.62-3.37-1.37-3.37-1.37-.46-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.12 2.91.85.09-.66.35-1.12.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9l-.01 2.82c0 .27.18.59.69.49A10.06 10.06 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>Source</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="wk rv" style="--brand:#38b6ff">
+        <div class="wk-shot">
+          <div class="wk-bar"><i></i><i></i><i></i><span class="u">nehals.me/HOSPITAL-MANAGEMENT-SYSTEM</span></div>
+          <img src="assets/shots/hms.png" alt="Hospital Management System interface" loading="lazy" />
+        </div>
+        <div class="wk-b">
+          <div class="wk-k"><span class="k mono">Full-stack project</span><span class="live mono"><i></i> Live</span></div>
+          <h3>Hospital<br />Management System</h3>
+          <p>A role-based hospital system — patients, doctors, appointments and records, with route authentication separating what each role can reach. My university DBMS project, taken further than the brief.</p>
+          <ul><li>JavaScript</li><li>DBMS</li><li>Auth &amp; Roles</li><li>Dashboards</li></ul>
+          <div class="wk-links">
+            <a class="wl pri" href="https://nehals.me/HOSPITAL-MANAGEMENT-SYSTEM/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>Visit site</a>
+            <a class="wl" href="https://github.com/NEHAL-S-DEVLR/HOSPITAL-MANAGEMENT-SYSTEM" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.09.68-.22.68-.49l-.01-1.72c-2.78.62-3.37-1.37-3.37-1.37-.46-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.12 2.91.85.09-.66.35-1.12.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9l-.01 2.82c0 .27.18.59.69.49A10.06 10.06 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>Source</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="wk rv" style="--brand:#37d17c">
+        <div class="wk-shot">
+          <div class="wk-bar"><i></i><i></i><i></i><span class="u">nehals.me/FocusFlow-Task-Manager</span></div>
+          <img src="assets/shots/focusflow.png" alt="FocusFlow task manager interface" loading="lazy" />
+        </div>
+        <div class="wk-b">
+          <div class="wk-k"><span class="k mono">Product</span><span class="live mono"><i></i> Live</span></div>
+          <h3>FocusFlow<br />Task Manager</h3>
+          <p>A task manager built around focus rather than lists — capture, prioritise and work through one thing at a time. A personal tool that turned into a shipped product.</p>
+          <ul><li>HTML</li><li>CSS</li><li>JavaScript</li><li>UI Design</li></ul>
+          <div class="wk-links">
+            <a class="wl pri" href="https://nehals.me/FocusFlow-Task-Manager/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>Visit site</a>
+            <a class="wl" href="https://github.com/NEHAL-S-DEVLR/FocusFlow-Task-Manager" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.09.68-.22.68-.49l-.01-1.72c-2.78.62-3.37-1.37-3.37-1.37-.46-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.12 2.91.85.09-.66.35-1.12.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9l-.01 2.82c0 .27.18.59.69.49A10.06 10.06 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>Source</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 04 LAB ═══════ -->
+<section id="lab">
+  <div class="wrap">
+    <div class="shead mono rv"><span class="num">04</span><span class="bar"></span><span class="nm">The Lab</span></div>
+    <h2 class="dsp stitle rv">Where the<br />commits land</h2>
+    <p class="lead sintro rv">Everything above starts as a push. This is the last year of activity on GitHub, pulled straight from my contribution graph.</p>
+
+    <div class="lab rv">
+      <div class="lab-h">
+        <div class="who">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.09.68-.22.68-.49l-.01-1.72c-2.78.62-3.37-1.37-3.37-1.37-.46-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.12 2.91.85.09-.66.35-1.12.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9l-.01 2.82c0 .27.18.59.69.49A10.06 10.06 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+          <div><b>NEHAL-S-DEVLR</b><span>Push dashboard</span></div>
+        </div>
+        <a class="wl pri" style="--brand:var(--acc)" href="https://github.com/NEHAL-S-DEVLR" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>Open profile</a>
+      </div>
+
+      <div class="tiles">
+        <div class="tile"><div class="n acc">79</div><span class="k mono">Contributions</span></div>
+        <div class="tile"><div class="n">23</div><span class="k mono">Active days</span></div>
+        <div class="tile"><div class="n">7</div><span class="k mono">Longest streak</span></div>
+        <div class="tile"><div class="n">9</div><span class="k mono">Public repos</span></div>
+        <div class="tile"><div class="n">5</div><span class="k mono">Live sites</span></div>
+      </div>
+
+      <div class="heat-wrap">
+        <div class="heat-top">
+          <span class="t mono">Last 12 months</span>
+          <span class="mono" style="color:var(--txt-3)">Aug 2025 &rarr; Aug 2026</span>
+        </div>
+        <div class="heat-scroll">
+          <div class="months mono" id="months"></div>
+          <div class="heat" id="heat"></div>
+        </div>
+        <div class="heat-leg mono">
+          Less <i data-l="0"></i><i data-l="1"></i><i data-l="2"></i><i data-l="3"></i><i data-l="4"></i> More
+        </div>
+      </div>
+
+      <div class="repos">
+        <a class="rp" href="https://github.com/NEHAL-S-DEVLR/VINAYAKA-JAGGERY-" target="_blank" rel="noopener">
+          <span class="nm">VINAYAKA-JAGGERY-</span><span class="lg"><i style="background:#8b949e"></i>AIRO Farms</span><span class="dt">Jul 2026</span></a>
+        <a class="rp" href="https://github.com/NEHAL-S-DEVLR/DBMS-PROJECT-HMS-" target="_blank" rel="noopener">
+          <span class="nm">DBMS-PROJECT-HMS-</span><span class="lg"><i style="background:#f1e05a"></i>JavaScript</span><span class="dt">May 2026</span></a>
+        <a class="rp" href="https://github.com/NEHAL-S-DEVLR/DBMS-Project" target="_blank" rel="noopener">
+          <span class="nm">DBMS-Project</span><span class="lg"><i style="background:#e34c26"></i>HTML</span><span class="dt">May 2026</span></a>
+        <a class="rp" href="https://github.com/NEHAL-S-DEVLR/HOSPITAL-MANAGEMENT-SYSTEM" target="_blank" rel="noopener">
+          <span class="nm">HOSPITAL-MANAGEMENT-SYSTEM</span><span class="lg"><i style="background:#e34c26"></i>HTML</span><span class="dt">Apr 2026</span></a>
+        <a class="rp" href="https://github.com/NEHAL-S-DEVLR/Rotaract.mandya" target="_blank" rel="noopener">
+          <span class="nm">Rotaract.mandya</span><span class="lg"><i style="background:#e34c26"></i>HTML</span><span class="dt">Feb 2026</span></a>
+        <a class="rp" href="https://github.com/NEHAL-S-DEVLR/SPREAD-media" target="_blank" rel="noopener">
+          <span class="nm">SPREAD-media</span><span class="lg"><i style="background:#e34c26"></i>HTML</span><span class="dt">Jan 2026</span></a>
+        <a class="rp" href="https://github.com/NEHAL-S-DEVLR/FocusFlow-Task-Manager" target="_blank" rel="noopener">
+          <span class="nm">FocusFlow-Task-Manager</span><span class="lg"><i style="background:#e34c26"></i>HTML</span><span class="dt">Dec 2025</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 05 CAPABILITIES ═══════ -->
+<section id="caps">
+  <div class="wrap">
+    <div class="shead mono rv"><span class="num">05</span><span class="bar"></span><span class="nm">Capabilities</span></div>
+    <h2 class="dsp stitle rv">Four crafts,<br />one standard</h2>
+    <p class="lead sintro rv">Different tools, same job — make it clear, make it move, make it work on every screen.</p>
+
+    <div class="caps rv">
+      <article class="cap">
+        <div class="cap-top"><span class="k mono">A / 01</span>
+          <svg class="cap-ic" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.2 19.5 12 7 19.8z"/></svg></div>
+        <h3>Brand &amp;<br />identity</h3>
+        <p>Logos, identity systems and the guidelines that keep them consistent — the work that makes a small business look established.</p>
+        <ul><li>Logo design</li><li>Identity</li><li>Guidelines</li></ul>
+      </article>
+      <article class="cap">
+        <div class="cap-top"><span class="k mono">B / 02</span>
+          <svg class="cap-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <h3>Interface<br />design</h3>
+        <p>Interfaces built as systems — real components, real states, designed in Figma and handed off ready to build.</p>
+        <ul><li>Figma</li><li>Design systems</li><li>Prototyping</li></ul>
+      </article>
+      <article class="cap">
+        <div class="cap-top"><span class="k mono">C / 03</span>
+          <svg class="cap-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m8 17-5-5 5-5M16 7l5 5-5 5M14 4l-4 16"/></svg></div>
+        <h3>Front-end<br />development</h3>
+        <p>Hand-written, responsive, accessible front-ends — plus the dashboards, auth and databases behind them.</p>
+        <ul><li>HTML / CSS</li><li>JavaScript</li><li>C / C++</li><li>DBMS</li></ul>
+      </article>
+      <article class="cap">
+        <div class="cap-top"><span class="k mono">D / 04</span>
+          <svg class="cap-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-5 3.5 3L21 6"/></svg></div>
+        <h3>Marketing &amp;<br />growth</h3>
+        <p>Social, content and campaigns that bring customers in — run monthly for real businesses, measured on what it returns.</p>
+        <ul><li>Social</li><li>Content</li><li>Ads</li><li>SEO</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 06 CHANNELS ═══════ -->
+<section id="chan">
+  <div class="wrap">
+    <div class="shead mono rv"><span class="num">06</span><span class="bar"></span><span class="nm">Channels</span></div>
+    <h2 class="dsp stitle rv">Everywhere<br />I show up</h2>
+    <p class="lead sintro rv">Ten places, one person. Pick whichever one you already live on.</p>
+
+    <div class="chan">
+      <a class="ch rv" href="https://www.linkedin.com/in/nehal-s-2572007iamheretoconquer/" target="_blank" rel="noopener">
+        <svg class="ch-ic" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zm1.78 13.02H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+        <span class="ch-nm">LinkedIn</span><span class="ch-d mono">Experience &amp; network</span>
+        <svg class="ch-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+
+      <a class="ch rv" href="https://github.com/NEHAL-S-DEVLR" target="_blank" rel="noopener">
+        <svg class="ch-ic" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.09.68-.22.68-.49l-.01-1.72c-2.78.62-3.37-1.37-3.37-1.37-.46-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.12 2.91.85.09-.66.35-1.12.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9l-.01 2.82c0 .27.18.59.69.49A10.06 10.06 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+        <span class="ch-nm">GitHub</span><span class="ch-d mono">Code &amp; open source</span>
+        <svg class="ch-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+
+      <a class="ch rv" href="https://www.behance.net/nehalk3" target="_blank" rel="noopener">
+        <svg class="ch-ic" viewBox="0 0 24 24" fill="currentColor"><path d="M7.6 5.2c.9 0 1.7.08 2.4.24.7.15 1.3.4 1.8.75.5.35.88.8 1.14 1.38.27.57.4 1.28.4 2.1 0 .9-.2 1.65-.62 2.25-.4.6-1 1.1-1.8 1.48 1.1.32 1.9.87 2.44 1.67.53.8.8 1.75.8 2.88 0 .9-.18 1.68-.53 2.34a4.4 4.4 0 0 1-1.44 1.6c-.6.42-1.3.72-2.1.92-.78.2-1.6.3-2.42.3H0V5.2h7.6zM7.15 12c.74 0 1.35-.18 1.83-.53.48-.35.72-.92.72-1.71 0-.44-.08-.8-.24-1.08a1.7 1.7 0 0 0-.63-.65 2.6 2.6 0 0 0-.92-.32c-.35-.06-.7-.09-1.08-.09H3.4V12h3.75zm.2 7.2c.4 0 .8-.04 1.17-.12.37-.08.7-.21.98-.4.28-.19.5-.44.67-.77.16-.32.25-.74.25-1.24 0-.98-.28-1.68-.83-2.1-.55-.42-1.28-.63-2.19-.63H3.4v5.26h3.95zM17.9 19.1c.46.45 1.13.68 2 .68.62 0 1.16-.16 1.6-.47.46-.31.74-.64.84-.99h2.5c-.4 1.24-1.01 2.13-1.84 2.66-.83.54-1.83.8-3 .8-.82 0-1.55-.13-2.21-.39a4.6 4.6 0 0 1-1.67-1.12 5 5 0 0 1-1.05-1.74 6.6 6.6 0 0 1-.37-2.24c0-.8.13-1.53.38-2.21a5.1 5.1 0 0 1 2.76-2.92 5.5 5.5 0 0 1 2.16-.42c.9 0 1.68.17 2.35.52a4.8 4.8 0 0 1 1.65 1.4c.43.58.74 1.25.93 2 .19.75.26 1.53.2 2.36h-7.6c0 .87.3 1.66.75 2.1zM21.4 14.1c-.37-.4-1-.62-1.78-.62-.51 0-.94.09-1.28.26-.34.18-.61.4-.82.65-.2.26-.34.53-.42.82-.08.28-.13.54-.14.76h4.7c-.14-.75-.4-1.28-.76-1.68zM16.4 7.4h5.9v1.62h-5.9V7.4z"/></svg>
+        <span class="ch-nm">Behance</span><span class="ch-d mono">Portfolio &amp; case studies</span>
+        <svg class="ch-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+
+      <a class="ch rv" href="https://www.figma.com/@nehalsn" target="_blank" rel="noopener">
+        <svg class="ch-ic" viewBox="0 0 24 24" fill="currentColor"><path d="M8.5 24a3.75 3.75 0 0 1-3.75-3.75A3.75 3.75 0 0 1 8.5 16.5h3.75v3.75A3.75 3.75 0 0 1 8.5 24zM4.75 12A3.75 3.75 0 0 1 8.5 8.25h3.75v7.5H8.5A3.75 3.75 0 0 1 4.75 12zM8.5 0h3.75v7.5H8.5a3.75 3.75 0 0 1 0-7.5zM13.5 0h2.25a3.75 3.75 0 0 1 0 7.5H13.5V0zM19.25 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0z"/></svg>
+        <span class="ch-nm">Figma</span><span class="ch-d mono">Design files &amp; community</span>
+        <svg class="ch-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+
+      <a class="ch rv" href="https://codepen.io/Nehal-the-animator" target="_blank" rel="noopener">
+        <svg class="ch-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 2.5 22 9v6l-10 6.5L2 15V9z"/><path d="M12 8.2 22 15M12 8.2 2 15M12 8.2V2.5M12 15.8 2 9M12 15.8 22 9M12 15.8v5.7"/></svg>
+        <span class="ch-nm">CodePen</span><span class="ch-d mono">Live animation experiments</span>
+        <svg class="ch-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+
+      <a class="ch rv" href="https://dribbble.com/" target="_blank" rel="noopener">
+        <svg class="ch-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M5.2 5.6c3.6 4 6 8.9 7 14.2M2.4 14.3c5.4-.9 10.6.3 14.7 3M4.5 18.9C7.6 14 12.9 10.6 19 10.1M8.6 2.5c3.3 2.7 5.9 6.3 7.5 10.4"/></svg>
+        <span class="ch-nm">Dribbble</span><span class="ch-d mono">Shots &amp; UI concepts</span>
+        <svg class="ch-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+
+      <a class="ch rv" href="https://medium.com/@nehal2572007" target="_blank" rel="noopener">
+        <svg class="ch-ic" viewBox="0 0 24 24" fill="currentColor"><ellipse cx="6.8" cy="12" rx="6.8" ry="7"/><ellipse cx="17" cy="12" rx="2.9" ry="6.4"/><ellipse cx="22.6" cy="12" rx="1.1" ry="5.7"/></svg>
+        <span class="ch-nm">Medium</span><span class="ch-d mono">Articles &amp; essays</span>
+        <svg class="ch-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+
+      <a class="ch rv" href="https://x.com/SalaarRaisaar" target="_blank" rel="noopener">
+        <svg class="ch-ic" viewBox="0 0 24 24" fill="currentColor"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.65l-5.21-6.82-5.96 6.82H1.68l7.73-8.84L1.25 2.25h6.82l4.71 6.23zm-1.16 17.52h1.83L7.08 4.13H5.11z"/></svg>
+        <span class="ch-nm">X</span><span class="ch-d mono">Thoughts &amp; work-in-progress</span>
+        <svg class="ch-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+
+      <a class="ch rv" href="https://www.facebook.com/nehal.krish.50/" target="_blank" rel="noopener">
+        <svg class="ch-ic" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
+        <span class="ch-nm">Facebook</span><span class="ch-d mono">Personal updates</span>
+        <svg class="ch-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+
+      <a class="ch rv" href="https://wa.me/919743242161?text=Hi%20Nehal%2C%20I%20found%20your%20site." target="_blank" rel="noopener">
+        <svg class="ch-ic" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.69 8.23-8.23 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.22.25-.87.85-.87 2.07s.89 2.4 1.02 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.2-.58.2-1.08.15-1.18-.06-.11-.23-.17-.48-.29z"/></svg>
+        <span class="ch-nm">WhatsApp</span><span class="ch-d mono">+91 97432 42161 — fastest</span>
+        <svg class="ch-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 07 CONTACT ═══════ -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="shead mono rv"><span class="num">07</span><span class="bar"></span><span class="nm">Contact</span></div>
+    <div class="ct-grid">
+      <div class="rv"><h2 class="dsp">Let's build<br />something<br /><span class="acc">worth it.</span></h2></div>
+      <div class="ct-side rv">
+        <div class="ct-row"><span class="k mono">WhatsApp</span>
+          <a href="https://wa.me/919743242161" target="_blank" rel="noopener">+91 97432 42161</a></div>
+        <div class="ct-row"><span class="k mono">Email</span>
+          <a href="mailto:nehal2572007@gmail.com">nehal2572007@gmail.com</a></div>
+        <div class="ct-row"><span class="k mono">LinkedIn</span>
+          <a href="https://www.linkedin.com/in/nehal-s-2572007iamheretoconquer/" target="_blank" rel="noopener">Connect with me</a></div>
+      </div>
+    </div>
+    <div class="ct-actions rv">
+      <a class="btn" href="https://wa.me/919743242161?text=Hi%20Nehal%2C%20I%27d%20like%20to%20work%20with%20you." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.69 8.23-8.23 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.22.25-.87.85-.87 2.07s.89 2.4 1.02 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.2-.58.2-1.08.15-1.18-.06-.11-.23-.17-.48-.29z"/></svg>
+        <span>Start a conversation</span></a>
+      <a class="btn btn-line" href="mailto:nehal2572007@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15"/><path d="m3 6 9 6 9-6"/></svg>
+        <span>Send an email</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fbrand">
+        <div class="m">Nehal S.</div>
+        <p>Ideas only become things when someone cares enough to build them.</p>
+      </div>
+      <div class="fcol"><h4 class="mono">Index</h4>
+        <a href="#log">Currently</a><a href="#vent">Ventures</a><a href="#work">Work</a>
+        <a href="#lab">The Lab</a><a href="#contact">Contact</a></div>
+      <div class="fcol"><h4 class="mono">Ventures</h4>
+        <a href="#vent">AIRO Company</a>
+        <a href="https://nehals.me/SPREAD-media/" target="_blank" rel="noopener">SPREAD Media</a>
+        <a href="https://nehals.me/Rotaract.mandya/" target="_blank" rel="noopener">Rotaract Mandya</a>
+        <a href="https://github.com/NEHAL-S-DEVLR" target="_blank" rel="noopener">GitHub</a></div>
+    </div>
+    <div class="fbot">
+      <p class="mono">© <span id="yr">2026</span> Nehal S. — Built by hand, no template</p>
+      <div class="fsoc">
+        <a href="https://www.linkedin.com/in/nehal-s-2572007iamheretoconquer/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zm1.78 13.02H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg></a>
+        <a href="https://github.com/NEHAL-S-DEVLR" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.09.68-.22.68-.49l-.01-1.72c-2.78.62-3.37-1.37-3.37-1.37-.46-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.12 2.91.85.09-.66.35-1.12.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9l-.01 2.82c0 .27.18.59.69.49A10.06 10.06 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg></a>
+        <a href="https://www.behance.net/nehalk3" target="_blank" rel="noopener" aria-label="Behance"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.6 5.2c.9 0 1.7.08 2.4.24.7.15 1.3.4 1.8.75.5.35.88.8 1.14 1.38.27.57.4 1.28.4 2.1 0 .9-.2 1.65-.62 2.25-.4.6-1 1.1-1.8 1.48 1.1.32 1.9.87 2.44 1.67.53.8.8 1.75.8 2.88 0 .9-.18 1.68-.53 2.34a4.4 4.4 0 0 1-1.44 1.6c-.6.42-1.3.72-2.1.92-.78.2-1.6.3-2.42.3H0V5.2h7.6zM7.15 12c.74 0 1.35-.18 1.83-.53.48-.35.72-.92.72-1.71 0-.44-.08-.8-.24-1.08a1.7 1.7 0 0 0-.63-.65 2.6 2.6 0 0 0-.92-.32c-.35-.06-.7-.09-1.08-.09H3.4V12h3.75zm.2 7.2c.4 0 .8-.04 1.17-.12.37-.08.7-.21.98-.4.28-.19.5-.44.67-.77.16-.32.25-.74.25-1.24 0-.98-.28-1.68-.83-2.1-.55-.42-1.28-.63-2.19-.63H3.4v5.26h3.95zM17.9 19.1c.46.45 1.13.68 2 .68.62 0 1.16-.16 1.6-.47.46-.31.74-.64.84-.99h2.5c-.4 1.24-1.01 2.13-1.84 2.66-.83.54-1.83.8-3 .8-.82 0-1.55-.13-2.21-.39a4.6 4.6 0 0 1-1.67-1.12 5 5 0 0 1-1.05-1.74 6.6 6.6 0 0 1-.37-2.24c0-.8.13-1.53.38-2.21a5.1 5.1 0 0 1 2.76-2.92 5.5 5.5 0 0 1 2.16-.42c.9 0 1.68.17 2.35.52a4.8 4.8 0 0 1 1.65 1.4c.43.58.74 1.25.93 2 .19.75.26 1.53.2 2.36h-7.6c0 .87.3 1.66.75 2.1zM21.4 14.1c-.37-.4-1-.62-1.78-.62-.51 0-.94.09-1.28.26-.34.18-.61.4-.82.65-.2.26-.34.53-.42.82-.08.28-.13.54-.14.76h4.7c-.14-.75-.4-1.28-.76-1.68zM16.4 7.4h5.9v1.62h-5.9V7.4z"/></svg></a>
+        <a href="https://www.figma.com/@nehalsn" target="_blank" rel="noopener" aria-label="Figma"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.5 24a3.75 3.75 0 0 1-3.75-3.75A3.75 3.75 0 0 1 8.5 16.5h3.75v3.75A3.75 3.75 0 0 1 8.5 24zM4.75 12A3.75 3.75 0 0 1 8.5 8.25h3.75v7.5H8.5A3.75 3.75 0 0 1 4.75 12zM8.5 0h3.75v7.5H8.5a3.75 3.75 0 0 1 0-7.5zM13.5 0h2.25a3.75 3.75 0 0 1 0 7.5H13.5V0zM19.25 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0z"/></svg></a>
+        <a href="https://codepen.io/Nehal-the-animator" target="_blank" rel="noopener" aria-label="CodePen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 2.5 22 9v6l-10 6.5L2 15V9z"/><path d="M12 8.2 22 15M12 8.2 2 15M12 8.2V2.5M12 15.8 2 9M12 15.8 22 9M12 15.8v5.7"/></svg></a>
+        <a href="https://dribbble.com/" target="_blank" rel="noopener" aria-label="Dribbble"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M5.2 5.6c3.6 4 6 8.9 7 14.2M2.4 14.3c5.4-.9 10.6.3 14.7 3M4.5 18.9C7.6 14 12.9 10.6 19 10.1M8.6 2.5c3.3 2.7 5.9 6.3 7.5 10.4"/></svg></a>
+        <a href="https://medium.com/@nehal2572007" target="_blank" rel="noopener" aria-label="Medium"><svg viewBox="0 0 24 24" fill="currentColor"><ellipse cx="6.8" cy="12" rx="6.8" ry="7"/><ellipse cx="17" cy="12" rx="2.9" ry="6.4"/><ellipse cx="22.6" cy="12" rx="1.1" ry="5.7"/></svg></a>
+        <a href="https://x.com/SalaarRaisaar" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.65l-5.21-6.82-5.96 6.82H1.68l7.73-8.84L1.25 2.25h6.82l4.71 6.23zm-1.16 17.52h1.83L7.08 4.13H5.11z"/></svg></a>
+        <a href="https://www.facebook.com/nehal.krish.50/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg></a>
+        <a href="https://wa.me/919743242161" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.69 8.23-8.23 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.22.25-.87.85-.87 2.07s.89 2.4 1.02 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.2-.58.2-1.08.15-1.18-.06-.11-.23-.17-.48-.29z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a class="wafab" href="https://wa.me/919743242161?text=Hi%20Nehal%2C%20I%20found%20your%20site." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.69 8.23-8.23 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.22.25-.87.85-.87 2.07s.89 2.4 1.02 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.2-.58.2-1.08.15-1.18-.06-.11-.23-.17-.48-.29z"/></svg>
+  <b>WhatsApp</b>
+</a>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  requestAnimationFrame(function(){ document.body.classList.add('ready'); });
+
+  /* ── hero scramble ── */
+  (function(){
+    var el = document.querySelector('[data-scramble]');
+    if (!el || reduce) return;
+    var final = el.textContent, pool = '▚▞█▓▒░/\\|<>*+=-_·';
+    var queue = final.split('').map(function(c,i){
+      return {c:c, start:10+Math.floor(Math.random()*12), end:26+i*2.5+Math.floor(Math.random()*14)};
+    });
+    var frame = 0;
+    function tick(){
+      var out='', done=0;
+      for (var i=0;i<queue.length;i++){
+        var q=queue[i];
+        if (frame>=q.end){ out+=q.c; done++; }
+        else if (frame>=q.start){
+          if (!q.r || Math.random()<.3) q.r = pool[Math.floor(Math.random()*pool.length)];
+          out+=q.r;
+        } else out += q.c;
+      }
+      el.textContent = out; frame++;
+      if (done<queue.length) requestAnimationFrame(tick); else el.textContent = final;
+    }
+    setTimeout(function(){ requestAnimationFrame(tick); }, 620);
+  })();
+
+  /* ── contribution heatmap (real data: 2025-08-10 → 2026-08-10) ── */
+  (function(){
+    var LEVELS =
+      "0000000000000000000000000000000000000000000000000000000000000" +
+      "0000000000000001000000000000000010000000000000000000002000000" +
+      "0020001112131000000000002230000100000000000000000000110000000" +
+      "0000000000000000000000000000000000000000000000000000000000000" +
+      "0000000000000000000000000010000421001000000000000000000000000" +
+      "0000000000000000000000000000010000000000000000000000000000000";
+    var heat = document.getElementById('heat'), months = document.getElementById('months');
+    if (!heat) return;
+    var start = new Date(2025, 7, 10);            // 10 Aug 2025 (a Sunday)
+    var MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var fh = document.createDocumentFragment(), fm = document.createDocumentFragment(), lastMon = -1;
+    for (var i = 0; i < LEVELS.length; i++){
+      var d = new Date(start.getTime() + i * 86400000);
+      var cell = document.createElement('i');
+      cell.setAttribute('data-l', LEVELS[i]);
+      cell.title = d.getDate() + ' ' + MON[d.getMonth()] + ' ' + d.getFullYear() +
+                   (LEVELS[i] === '0' ? ' — no contributions' : ' — contributions');
+      fh.appendChild(cell);
+      if (i % 7 === 0){                            // one label slot per week column
+        var lab = document.createElement('span');
+        if (d.getMonth() !== lastMon && d.getDate() <= 7){ lab.textContent = MON[d.getMonth()]; lastMon = d.getMonth(); }
+        fm.appendChild(lab);
+      }
+    }
+    heat.appendChild(fh); months.appendChild(fm);
+  })();
+
+  /* ── progress bar + header ── */
+  var prog = document.getElementById('prog'), hdr = document.getElementById('hdr');
+  function onProg(){
+    var d = document.documentElement, max = d.scrollHeight - d.clientHeight;
+    prog.style.width = (max > 0 ? (d.scrollTop / max) * 100 : 0) + '%';
+    hdr.classList.toggle('solid', d.scrollTop > 20);
+  }
+  onProg();
+  window.addEventListener('scroll', onProg, {passive:true});
+  window.addEventListener('resize', onProg, {passive:true});
+
+  /* ── reveal on scroll ── */
+  var pending = [].slice.call(document.querySelectorAll('.rv'));
+  function sweep(){
+    var h = window.innerHeight || document.documentElement.clientHeight;
+    for (var i = pending.length - 1; i >= 0; i--){
+      if (pending[i].getBoundingClientRect().top < h - 50){
+        pending[i].classList.add('in'); pending.splice(i,1);
+      }
+    }
+  }
+  var busy = false;
+  function onRv(){ if (busy) return; busy = true; requestAnimationFrame(function(){ sweep(); busy = false; }); }
+  window.addEventListener('scroll', onRv, {passive:true});
+  window.addEventListener('resize', onRv, {passive:true});
+  [].slice.call(document.querySelectorAll('.rv')).forEach(function(el,i){
+    if (el.getBoundingClientRect().top < (window.innerHeight || 800)) el.style.transitionDelay = Math.min(i*85,480)+'ms';
+  });
+  requestAnimationFrame(function(){
+    sweep();
+    setTimeout(function(){
+      [].slice.call(document.querySelectorAll('.rv')).forEach(function(el){ el.style.transitionDelay=''; });
+    },1200);
+  });
+
+  /* ── active nav ── */
+  var links = [].slice.call(document.querySelectorAll('.hnav a[data-sec]'));
+  var secs = links.map(function(a){ return document.getElementById(a.dataset.sec); });
+  function active(){
+    var probe = (window.innerHeight || 800) * 0.4, best = -1, top = -Infinity;
+    secs.forEach(function(s,i){
+      if (!s) return;
+      var t = s.getBoundingClientRect().top;
+      if (t <= probe && t > top){ top = t; best = i; }
+    });
+    links.forEach(function(a,i){ a.classList.toggle('on', i === best); });
+  }
+  active();
+  window.addEventListener('scroll', active, {passive:true});
+})();
+</script>
+</body>
+</html>
