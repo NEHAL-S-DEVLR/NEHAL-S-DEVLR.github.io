@@ -187,3 +187,24 @@
     if (months) months.appendChild(fm);
   })();
 })();
+
+/* ── experience durations ───────────────────────────────────────
+   <span data-from="2026-01">                   → "Jan 2026 – Present · 9 mos"
+   <span data-from="2025-07" data-to="2026-06"> → "Jul 2025 – Jun 2026 · 1 yr"
+   Months count inclusively, as LinkedIn does. "Present" is worked out on
+   every visit so durations never go stale; the static text is the no-JS fallback. */
+(function () {
+  "use strict";
+  var MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var now = new Date();
+  [].slice.call(document.querySelectorAll('[data-from]')).forEach(function (el) {
+    var f = el.getAttribute('data-from').split('-'), to = el.getAttribute('data-to');
+    var fy = +f[0], fm = +f[1] - 1, ty, tm;
+    if (to) { var t = to.split('-'); ty = +t[0]; tm = +t[1] - 1; }
+    else { ty = now.getFullYear(); tm = now.getMonth(); }
+    var m = Math.max(1, (ty - fy) * 12 + (tm - fm) + 1);
+    var y = Math.floor(m / 12), r = m % 12;
+    var len = (y ? y + (y > 1 ? ' yrs' : ' yr') : '') + (y && r ? ' ' : '') + (r ? r + (r > 1 ? ' mos' : ' mo') : '');
+    el.textContent = MON[fm] + ' ' + fy + ' – ' + (to ? MON[tm] + ' ' + ty : 'Present') + ' · ' + len;
+  });
+})();
