@@ -571,3 +571,39 @@ html.js .spread-stick{position:sticky;top:0}
   .sc.logo{width:clamp(70px,7vw,92px)}
 }
 @media(prefers-reduced-motion:reduce){html.js .spread{--p:1;height:auto}html.js .spread-stick{position:relative}}
+
+/* ── MOBILE POLISH ───────────────────────────────────────────── */
+/* The header caption needs two lines on a phone, which pushed it past the
+   bar and over the page behind it. Keep the bar to one clean line there —
+   the caption still sits under the name in the footer. */
+@media(max-width:900px){.sig small{display:none}}
+
+/* .ln masks each line for the reveal. At line-height .88 the mask also cut
+   the glyphs, and "Brand it." wrapped once the font got close to the width. */
+.hero h1{font-size:clamp(1.9rem,9.8vw,8.8rem);line-height:1}
+.hero h1 .ln{padding-bottom:.06em}
+.hero h1 .ln>span{white-space:nowrap}
+
+/* The scroll-driven fan needs space a phone doesn't have, so below 760px
+   the same work shows as a plain grid. */
+@media(max-width:760px){
+  html.js .spread{--p:1;height:auto}
+  html.js .spread-stick{position:relative}
+  .spread-stick{height:auto;min-height:0;display:block;overflow:visible;
+    padding:clamp(56px,12vw,90px) clamp(20px,4vw,48px)}
+  .spread-line{font-size:clamp(1.8rem,8vw,2.6rem);max-width:none;margin:0 0 clamp(22px,6vw,34px);text-align:left}
+  .spread-deck{position:static;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .sc{position:static;transform:none;width:auto}
+  .sc.logo{display:none}
+  .spread-hint{display:none}
+}
+
+/* The contact panel asked for a 290px minimum, which a grid track resolves
+   against max-content on a phone — wider than the screen. Let it shrink. */
+@media(max-width:860px){
+  /* a 1fr track still takes its minimum from content; minmax(0,1fr) doesn't */
+  .ct-grid{grid-template-columns:minmax(0,1fr)}
+  .ct-side{min-width:0}
+  .ct-row a{overflow-wrap:anywhere}
+  .ct-box{padding:clamp(22px,6vw,40px) clamp(18px,5vw,34px)}
+}
