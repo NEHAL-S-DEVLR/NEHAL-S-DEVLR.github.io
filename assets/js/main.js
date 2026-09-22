@@ -208,3 +208,21 @@
     el.textContent = MON[fm] + ' ' + fy + ' – ' + (to ? MON[tm] + ' ' + ty : 'Present') + ' · ' + len;
   });
 })();
+
+/* ── spread: scroll through the section drives --p from 0 to 1 ───── */
+(function () {
+  "use strict";
+  var sec = document.querySelector('.spread');
+  if (!sec || (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  var ticking = false;
+  function update() {
+    ticking = false;
+    var r = sec.getBoundingClientRect(), run = r.height - innerHeight;
+    var p = run > 0 ? Math.min(1, Math.max(0, -r.top / (run * 0.8))) : 1;   // last 20% holds the spread
+    sec.style.setProperty('--p', (1 - Math.pow(1 - p, 3)).toFixed(4));     // ease-out
+  }
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+  addEventListener('scroll', onScroll, { passive: true });
+  addEventListener('resize', onScroll, { passive: true });
+  update();
+})();

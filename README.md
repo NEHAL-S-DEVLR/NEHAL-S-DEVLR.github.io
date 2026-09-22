@@ -85,3 +85,8 @@ and the rest) live in their own repos and are unaffected.
 - If JavaScript doesn't run, nothing is hidden — the scroll animations are
   gated behind an `html.js` class, so the page stays readable either way.
 - Respects `prefers-reduced-motion`.
+
+## Your photo
+
+The home page frame ("Fig. 01") shows `assets/me.jpg`. It is a blank placeholder
+for now — replace that file with your own portrait (about 4:5) and keep the name.
