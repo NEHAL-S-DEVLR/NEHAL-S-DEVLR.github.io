@@ -1,0 +1,32 @@
+name: Refresh GitHub activity
+
+# Rewrites assets/js/activity.js from the real contribution graph so the Lab
+# page's heatmap and tiles stay current without anyone touching the code.
+on:
+  schedule:
+    - cron: "17 1 * * *"      # 06:47 IST daily
+  workflow_dispatch:           # or run it by hand from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python3 scripts/update_activity.py
+      - name: Commit if the numbers changed
+        run: |
+          if [ -n "$(git status --porcelain assets/js/activity.js)" ]; then
+            git config user.name  "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add assets/js/activity.js
+            git commit -m "Refresh GitHub activity data"
+            git push
+          else
+            echo "No change."
+          fi

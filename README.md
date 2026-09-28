@@ -90,3 +90,16 @@ and the rest) live in their own repos and are unaffected.
 
 The home page frame ("Fig. 01") shows `assets/me.jpg`. It is a blank placeholder
 for now — replace that file with your own portrait (about 4:5) and keep the name.
+
+## Refreshing the GitHub activity
+
+The Lab page's heatmap and its tiles read `assets/js/activity.js`, which is
+generated from your real contribution graph — no token needed:
+
+```bash
+python3 scripts/update_activity.py
+```
+
+`.github/workflows/update-activity.yml` runs that every night and commits the
+file if the numbers moved, so the page stays current on its own. Don't edit
+`assets/js/activity.js` by hand; regenerate it instead.

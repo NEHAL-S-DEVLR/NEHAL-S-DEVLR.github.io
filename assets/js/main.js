@@ -154,7 +154,13 @@
     var heat = $('#heat'), months = $('#months');
     if (!heat) return;
 
-    var LEVELS =
+    /* assets/js/activity.js sets window.ACTIVITY and is regenerated nightly by
+       .github/workflows/update-activity.yml. The string below is the fallback
+       for when that file is missing (e.g. opening the page straight off disk). */
+    var A = (window.ACTIVITY && typeof window.ACTIVITY.levels === 'string'
+             && window.ACTIVITY.levels.length > 300) ? window.ACTIVITY : null;
+
+    var LEVELS = A ? A.levels :
       "0000000000000000000000000000000000000000000000000000000000000" +
       "0000000000000001000000000000000010000000000000000000002000000" +
       "0020001112131000000000002230000100000000000000000000110000000" +
@@ -162,7 +168,9 @@
       "0000000000000000000000000010000421001000000000000000000000000" +
       "0000000000000000000000000000010000000000000000000000000000000";
 
-    var start = new Date(2025, 7, 10);           // 10 Aug 2025, a Sunday
+    var COUNTS = A && A.counts ? A.counts : null;
+    var start = A ? new Date(+A.start.slice(0,4), +A.start.slice(5,7) - 1, +A.start.slice(8,10))
+                  : new Date(2025, 7, 10);      // fallback: 10 Aug 2025, a Sunday
     var MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
     var fh = document.createDocumentFragment(), fm = document.createDocumentFragment(), lastMon = -1;
 
@@ -170,8 +178,10 @@
       var d = new Date(start.getTime() + i * 86400000);
       var cell = document.createElement('i');
       cell.setAttribute('data-l', LEVELS[i]);
-      cell.title = d.getDate() + ' ' + MON[d.getMonth()] + ' ' + d.getFullYear() +
-        (LEVELS[i] === '0' ? ' — no contributions' : ' — contributions');
+      var n = COUNTS ? COUNTS[i] : null;
+      cell.title = d.getDate() + ' ' + MON[d.getMonth()] + ' ' + d.getFullYear() + ' — ' +
+        (n === null ? (LEVELS[i] === '0' ? 'no contributions' : 'contributions')
+                    : (n === 1 ? '1 contribution' : n + ' contributions'));
       fh.appendChild(cell);
 
       if (i % 7 === 0) {                          // one label slot per week column
@@ -185,6 +195,19 @@
     }
     heat.appendChild(fh);
     if (months) months.appendChild(fm);
+
+    /* keep the tiles and the date range in step with the same data */
+    if (A) {
+      var set = function (id, v) {
+        var el = document.getElementById(id);
+        if (el && v !== null && v !== undefined) el.textContent = v;
+      };
+      set('tl-contrib', A.total); set('tl-active', A.activeDays);
+      set('tl-streak', A.longestStreak); set('tl-repos', A.repos);
+      var end = new Date(start.getTime() + (LEVELS.length - 1) * 86400000);
+      set('tl-range', MON[start.getMonth()] + ' ' + start.getFullYear() + ' \u2192 ' +
+                      MON[end.getMonth()] + ' ' + end.getFullYear());
+    }
   })();
 })();
 
