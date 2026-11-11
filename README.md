@@ -59,12 +59,12 @@ To retake one:
 ```bash
 "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless \
   --window-size=1440,900 --screenshot=assets/shots/rotaract.png \
-  "https://nehals.me/Rotaract.mandya/"
+  "https://nehal-s-devlr.github.io/Rotaract.mandya/"
 ```
 
-## Publishing to nehals.me
+## Publishing to nehal-s-devlr.github.io
 
-You already own `nehals.me`, and it currently serves your
+You already own `nehal-s-devlr.github.io`, and it currently serves your
 `NEHAL-S-DEVLR.github.io` repo. To put this site there, replace that repo's
 contents with these files and push:
 
@@ -75,7 +75,7 @@ git remote add origin https://github.com/NEHAL-S-DEVLR/NEHAL-S-DEVLR.github.io.g
 git push -u --force origin main
 ```
 
-Your existing project sites (`nehals.me/Rotaract.mandya/`, `/SPREAD-media/`,
+Your existing project sites (`nehal-s-devlr.github.io/Rotaract.mandya/`, `/SPREAD-media/`,
 and the rest) live in their own repos and are unaffected.
 
 ## Notes
@@ -88,8 +88,8 @@ and the rest) live in their own repos and are unaffected.
 
 ## Your photo
 
-The home page frame ("Fig. 01") shows `assets/me.jpg`. It is a blank placeholder
-for now — replace that file with your own portrait (about 4:5) and keep the name.
+The home page frame ("Fig. 01") shows `assets/me.jpg` — your photo, cropped to
+4:5. To change it, replace that file with another portrait and keep the name.
 
 ## Refreshing the GitHub activity
 
