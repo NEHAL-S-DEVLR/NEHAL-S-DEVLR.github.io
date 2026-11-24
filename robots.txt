@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Big LLM crawlers — allowed; this site is a portfolio, being read is the point.
+Sitemap: https://nehal.is-a.dev/sitemap.xml
